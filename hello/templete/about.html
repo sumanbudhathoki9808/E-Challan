@@ -1,0 +1,52 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body>
+    <header>
+        <div class="page-header">
+            <div class="page-logo">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'src/img/page-logo.png' %}" alt="Page Logo">
+                </a>
+            </div>
+            <div class="page-nav">
+                <ul>
+                    <li>
+                        <a href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'create' %}">Create Challan</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'about' %}" class="active-page">About Us</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact' %}">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="user-details-section">
+                <div class="user-icon">
+                    <i class="fas fa-user fa-3x"></i>
+                </div>
+                <div class="log-out-section">
+                    <span class="user-name">John Doe</span>
+                    <li class="log-out-button">
+                        <a href="#">Log Out</a>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+</html>
