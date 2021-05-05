@@ -16,17 +16,24 @@
     </header>
     <div class="main-page-content">
         <div class="page-title">
-            <h1>E-Challan Website</h1>
+            <h1>Registration</h1>
         </div>
-        <form action="index.html" class="sign-in-form">
-            <h2>Sign-In</h2>
-            <div class="username-section">
-                <input type="text" id="username" required>
-                <label for="username">Username</label>
+        <form action="index.html" class="registration-form">
+            <div class="name-section">
+                <input type="text" id="name" required>
+                <label for="name">Name</label>
+            </div>
+            <div class="phone-section">
+                <input type="email" id="email" required>
+                <label for="email">Email</label>
             </div>
             <div class="password-section">
                 <input type="password" id="password" required>
                 <label for="password">Password</label>
+            </div>
+            <div class="password-section">
+                <input type="password" id="confirm" required>
+                <label for="confirm">Confirm Password</label>
             </div>
             <input type="submit" value="Sign In" class="sign-in-button">
         </form>
