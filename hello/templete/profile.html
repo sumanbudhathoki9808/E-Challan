@@ -23,7 +23,7 @@
             <div class="page-nav">
                 <ul>
                     <li>
-                        <a href="{% url 'home' %}" class="active-page">Home</a>
+                        <a href="{% url 'home' %}" >Home</a>
                     </li>
                     <li>
                         <a href="{% url 'create' %}">Create Challan</a>
@@ -37,41 +37,29 @@
                 </ul>
             </div>
             <div class="user-details-section">
-                <div class="navbar-nav">
-                    {% if user.is_authenticated %}
-                      <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-                      <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
-                    {% else %}
-                      <a class="nav-item nav-link" href="{% url 'loginPage' %}">Login</a>
-                      <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
-                    {% endif %}
-                  </div>
+                <i class="fas fa-user fa-3x"></i>
+                <div class="dropdown">
+                    <span class="user-name">{{request.user}}</span>
+                    <ul>
+                        <li class="log-out-button">
+                            <a href="{% url 'loginPage' %}" class="active-page">Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </header>
-    <div class="main-body-section">
-        <div class="page-title-section">
-            <h1 class="page-title">E-challan Website</h1>
+    <div class="content-section">
+        <div class="media">
+          <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+          <div class="media-body">
+            <h2 class="account-heading">{{ user.username }}</h2>
+            <p class="text-secondary">{{ user.email }}</p>
+          </div>
         </div>
-        <div class="slider-section">
-            <div class="slides fade">
-                <img src="{% static 'src/img/slider-1.gif' %}" style="width:100%">
-            </div>
-            <div class="slides fade">
-                <img src="{% static 'src/img/slider-2.gif' %}" style="width:100%">
-            </div>
-            <div class="slides fade">
-                <img src="{% static 'src/img/slider-3.gif' %}" style="width:100%">
-            </div>
-            <a class="prev-button" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next-button" onclick="plusSlides(1)">&#10095;</a>
-            <br>
-            <div style="text-align:center">
-                <span class="dot" onclick="currentSlide(1)"></span> 
-                <span class="dot" onclick="currentSlide(2)"></span> 
-                <span class="dot" onclick="currentSlide(3)"></span> 
-            </div>
-        </div>
-    </div>
+        <!-- FORM HERE -->
+      </div>
+   
     <footer class="page-footer">
         <div class="footer-logo">
             <img src="{% static 'src/img/page-logo.png' %}" alt="Page Logo">
