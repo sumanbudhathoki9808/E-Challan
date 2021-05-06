@@ -8,6 +8,7 @@
     <title>Create Challan</title>
     <link rel = "icon" href = "{% static 'src/img/page-logo.png' %}" type = "image/x-icon">
     <link rel="stylesheet" href="{% static 'css/create.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -34,12 +35,81 @@
                     </li>
                 </ul>
             </div>
-            <div class="log-out-section">
-                <li class="log-out-button">
-                    <a href="{% url 'loginPage' %}">Log Out</a>
-                </li>
+            <div class="user-details-section">
+                <i class="fas fa-user fa-3x"></i>
+                <div class="dropdown">
+                    <li class="user-name">{{request.user}}</li>
+                    <li class="log-out-button">
+                        <a href="{% url 'loginPage' %}">Log Out</a>
+                    </li>
+                </div>
             </div>
         </div>
     </header>
+    <div class="logout-page-overlay">
+        <span class="close-btn">x</span>
+        <div class="overlay-content">
+            <span class="overlay-message">Do you really want to logout?</span>
+            <div class="overlay-options">
+                <li>Yes</li>
+                <li class="no-logout">No</li>
+            </div>
+        </div>
+    </div>
+    <main class="main-body-section">
+        <div class="create-form-section">
+            <h1>Create Challan</h1>
+            <form action="#" method="POST" class="create-form">
+                {% csrf_token %}
+                <div class="form-option">
+                    <label for="">Name</label>
+                    <input  name = 'names' type="text">
+                </div>
+                <div class="form-option">
+                    <label for="">Phone Number</label>
+                    <input name = 'phonenumber' type="text">
+                </div>
+                <div class="form-option">
+                    <label for="">Place</label>
+                    <input name = 'place' type="text">
+                </div>
+                <div class="form-option">
+                    <label for="">License Number</label>
+                    <input name = 'licensenumber' type="text">
+                </div>
+                <div class="form-option">
+                    <label for="">Vehicle Number</label>
+                    <input name = 'vehiclenumber' type="text">
+                </div>
+                <div class="form-option">
+                    <label for="">Vehicle Type</label>
+                    <!-- <select name="Vehicle Type" id="">
+                        <option value="Car">Car</option>
+                        <option value="Motorcycle">Motorcycle</option>
+                        <option value="Bus">Bus</option>
+                        <option value="Van">Van</option>
+                        <option value="Truck">Truck</option>
+                    </select> -->
+                    <input name = 'vehicletype'  type="text">
+                </div>
+                <div class="form-option">
+                    <label for="">Created By</label>
+                    <input name = 'creator' type="text">
+                </div>
+                <input class="submit-btn" type="submit">
+            </form>
+        </div>
+    </main>
+    <footer class="page-footer">
+        <div class="footer-logo">
+            <img src="src/img/page-logo.png" alt="Page Logo">
+        </div>
+        <span class="copyright">Copyright &#169; E-Challan 2021 </span>
+        <div class="contact-info">
+            <span>Email: abcd@gmail.com</span>
+            <span>Phone:1234567890</span>
+        </div>
+    </footer>
+    <script src="{% static 'Js/overlay.js' %}"></script>
 </body>
 </html>
