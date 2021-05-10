@@ -1,0 +1,13 @@
+@media print{
+    header{
+        display: none;
+    }
+
+    footer{
+        display: none;
+    }
+
+    .create-form{
+        width: 100%;
+    }
+}

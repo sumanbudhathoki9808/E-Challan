@@ -17,6 +17,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .models import challan
+from . import models
 
 # Create your views here.
 # from .models import *
@@ -68,7 +69,7 @@ def home(request):
 
 def create(request):
     if request.method == "POST":
-        challans = challan()
+        # challans = challan()
         names = request.POST.get('names')
         phonenumber = request.POST.get('phonenumber')
         place = request.POST.get('place')
@@ -77,14 +78,18 @@ def create(request):
         vehicletype = request.POST.get('vehicletype')
         creator = request.POST.get('creator')
 
-        challans.names = names
-        challans.phonenumber = phonenumber
-        challans.place = place
-        challans.licensenumber = licensenumber
-        challans.vehiclenumber = vehiclenumber
-        challans.vehicletype = vehicletype
-        challans.creator = creator
-        challans.save()
+        # challans.names = names
+        # challans.phonenumber = phonenumber
+        # challans.place = place
+        # challans.licensenumber = licensenumber
+        # challans.vehiclenumber = vehiclenumber
+        # challans.vehicletype = vehicletype
+        # challans.creator = creator
+        # challans.save()
+        ins = models.challan(names = names, phonenumber = phonenumber,  place=place, licensenumber = licensenumber, vehiclenumber=vehiclenumber, vehicletype=vehicletype, creator=creator)
+        ins.save()
+
+
 
     return render(request, "create.html")
 

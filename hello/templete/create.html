@@ -9,7 +9,9 @@
     <link rel = "icon" href = "{% static 'src/img/page-logo.png' %}" type = "image/x-icon">
     <link rel="stylesheet" href="{% static 'css/create.css' %}">
     <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/print.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body>
     <header>
@@ -83,21 +85,24 @@
                 </div>
                 <div class="form-option">
                     <label for="">Vehicle Type</label>
-                    <!-- <select name="Vehicle Type" id="">
-                        <option value="Car">Car</option>
+                    <select name="Vehicle Type" id="">
+                        <option value="Car" selected>Car</option>
                         <option value="Motorcycle">Motorcycle</option>
                         <option value="Bus">Bus</option>
                         <option value="Van">Van</option>
                         <option value="Truck">Truck</option>
-                    </select> -->
-                    <input name = 'vehicletype'  type="text">
+                    </select>
+                    <!-- <input name = 'vehicletype'  type="text"> -->
                 </div>
                 <div class="form-option">
                     <label for="">Created By</label>
                     <input name = 'creator' type="text">
                 </div>
-                <input class="submit-btn" type="submit">
+                <input class="submit-btn" type="submit">  
             </form>
+            <button class="btns" onclick="pri()">
+                abc
+            </button>
         </div>
     </main>
     <footer class="page-footer">
@@ -111,5 +116,10 @@
         </div>
     </footer>
     <script src="{% static 'Js/overlay.js' %}"></script>
+    <script>
+        function pri(){
+            window.print()
+        }
+    </script>
 </body>
 </html>
