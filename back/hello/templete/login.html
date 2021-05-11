@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kathmandu E-Challan</title>
+    <link rel="stylesheet" href="{% static 'css/log-in.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="page-header">
+        <div class="page-logo">
+            <img src="{% static 'src/img/page-logo.png' %}" alt="Logo">
+        </div>
+    </header>
+    <div class="main-page-content">
+        <div class="page-title">
+            <h1>Kathmandu E-Challan Website</h1>
+        </div>
+        
+        <!-- {% block content %} -->
+        <form method="POST" class="sign-in-form" >
+            {% csrf_token %}
+            <h2>Sign-in to do what</h2>
+            <div class="username-section">
+                <input type="text" name = "username" required>
+                <label for="Username">Username</label>
+            </div>
+            <div class="password-section">
+                <input type="password" name = "password" required>
+                <label for="Password">Password</label>
+            </div>
+            <!-- <button type="submit" value="Sign In" class="sign-in-button">Submit</button> -->
+            <div class="sign-in-button">
+                <input type="submit" value="Login">
+            </div>
+        </form>
+
+        <!-- {% endblock %} -->
+    </div>
+    <footer class="page-footer">
+        <div class="footer-logo">
+            <img src="{% static 'src/img/page-logo.png' %}" alt="Logo">
+        </div>
+        <div class="contact-info">
+            <span class="contact-us-title">Contact Us</span>
+            <div class="contact-details">
+                <span>Phone: 1234567890</span>
+                <span>Email: abcd@gmail.com</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,130 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Challan</title>
+    <link rel = "icon" href = "{% static 'src/img/page-logo.png' %}" type = "image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/create.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/print.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body>
+    <header>
+        <div class="page-header">
+            <div class="page-logo">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'src/img/page-logo.png' %}" alt="Page Logo">
+                </a>
+            </div>
+            <div class="page-nav">
+                <ul>
+                    <li>
+                        <a href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'create' %}" class="active-page">Create Challan</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'about' %}">About Us</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact' %}">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="user-details-section">
+                <i class="fas fa-user fa-3x"></i>
+                <div class="dropdown">
+                    <li class="user-name">{{request.user}}</li>
+                    <li class="log-out-button">
+                        <a href="{% url 'loginPage' %}">Log Out</a>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="logout-page-overlay">
+        <span class="close-btn">x</span>
+        <div class="overlay-content">
+            <span class="overlay-message">Do you really want to logout?</span>
+            <div class="overlay-options">
+                <li>Yes</li>
+                <li class="no-logout">No</li>
+            </div>
+        </div>
+    </div>
+    <main class="main-body-section">
+        <div class="create-form-section">
+            <h1>Create Challan</h1>
+            <form action="#" method="POST" class="create-form">
+                {% csrf_token %}
+                <div class="form-option">
+                    <label for="">Name</label>
+                    <input  name = 'names' type="text">
+                </div>
+                <div class="form-option">
+                    <label for="">Phone Number</label>
+                    <input name = 'phonenumber' type="text">
+                </div>
+                <div class="form-option">
+                    <label for="">Place</label>
+                    <input name = 'place' type="text">
+                </div>
+                <div class="form-option">
+                    <label for="">License Number</label>
+                    <input name = 'licensenumber' type="text">
+                </div>
+                <div class="form-option">
+                    <label for="">Vehicle Number</label>
+                    <input name = 'vehiclenumber' type="text">
+                </div>
+                <div class="form-option">
+                    <label for="">Vehicle Type</label>
+                    <!-- <select name="Vehicle Type" id="">
+                        <option value="Car" selected>Car</option>
+                        <option value="Motorcycle">Motorcycle</option>
+                        <option value="Bus">Bus</option>
+                        <option value="Van">Van</option>
+                        <option value="Truck">Truck</option>
+                    </select> -->
+                    <input name = 'vehicletype'  type="text">
+                </div>
+                <div class="form-option">
+                    <label for="">Created By</label>
+                    <input name = 'creator' type="text">
+                </div>
+                <input class="submit-btn" type="submit">  
+            </form>
+            <button class="btns" onclick="pri()">
+                abc
+            </button>
+            <button class="btnss">
+                <a href="{% url 'viewchallan' %}">
+                    Record
+                </a>
+            </button>
+        </div>
+    </main>
+    <footer class="page-footer">
+        <div class="footer-logo">
+            <img src="{% static 'src/img/page-logo.png' %}" alt="Page Logo">
+        </div>
+        <span class="copyright">Copyright &#169; E-Challan 2021 </span>
+        <div class="contact-info">
+            <span>Email: abcd@gmail.com</span>
+            <span>Phone:1234567890</span>
+        </div>
+    </footer>
+    <script src="{% static 'Js/overlay.js' %}"></script>
+    <script>
+        function pri(){
+            window.print()
+        }
+    </script>
+</body>
+</html>

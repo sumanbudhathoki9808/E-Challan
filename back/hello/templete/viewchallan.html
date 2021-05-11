@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Challan</title>
+    <link rel = "icon" href = "{% static 'src/img/page-logo.png' %}" type = "image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
+
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center;">
+            Challan Record
+        </h1>
+    </div>
+    <div class="table-responsive-sm">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Place</th>
+                <th scope="col">License Number</th>
+                <th scope="col">Vehicle Number</th>
+                <th scope="col">Vehicle Type</th>
+                <th scope="col">Created By</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in record %}
+                <tr>
+                  <td>{{i.names}}</td>
+                  <td>{{i.phonenumber}}</td>
+                  <td>{{i.place}}</td>
+                  <td>{{i.licensenumber}}</td>
+                  <td>{{i.vehiclenumber}}</td>
+                  <td>{{i.vehicletype}}</td>
+                  <td>{{i.creator}}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <button class="btnss">
+            <a href="{% url 'create' %}">
+                Create Challan
+            </a>
+          </button>
+    </div>
+      </div>
+</body>
+</html>
