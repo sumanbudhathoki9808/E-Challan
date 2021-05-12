@@ -32,9 +32,18 @@
                     <li>
                         <a href="{% url 'about' %}">About Us</a>
                     </li>
+                    {% if user.is_superuser %}
+                    {% else %}
                     <li>
                         <a href="{% url 'contact' %}">Contact Us</a>
                     </li>
+                    {% endif %}
+                    
+                    {% if user.is_superuser %}
+                    <li>
+                        <a href="/admin">Admin</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
             <div class="user-details-section">
@@ -42,12 +51,27 @@
                 <div class="dropdown">
                     <li class="user-name">{{request.user}}</li>
                     <li class="log-out-button">
-                        <a href="{% url 'loginPage' %}">Log Out</a>
+                        <a href=""></a>Log Out</a>
                     </li>
                 </div>
             </div>
         </div>
     </header>
+    <div class="logout-page-overlay">
+        <span class="close-btn">x</span>
+        <div class="overlay-content">
+            <span class="overlay-message">Do you really want to logout?</span>
+            <div class="overlay-options">
+                {% if user.is_authenticated %}
+                <li class="no-logout">
+                    <a href="{% url 'logout' %}">Yes</a>
+                </li>
+                
+                <li class="no-logout">No</li>
+                {% endif %}
+            </div>
+        </div>
+    </div>
     <div class="main-body-section">
         <div class="page-title-section">
             <h1 class="page-title">E-challan Website</h1>

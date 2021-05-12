@@ -32,9 +32,18 @@
                     <li>
                         <a href="{% url 'about' %}">About Us</a>
                     </li>
+                    {% if user.is_superuser %}
+                    {% else %}
                     <li>
                         <a href="{% url 'contact' %}">Contact Us</a>
                     </li>
+                    {% endif %}
+                    
+                    {% if user.is_superuser %}
+                    <li>
+                        <a href="/admin">Admin</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
             <div class="user-details-section">
@@ -42,7 +51,7 @@
                 <div class="dropdown">
                     <li class="user-name">{{request.user}}</li>
                     <li class="log-out-button">
-                        <a href="{% url 'loginPage' %}">Log Out</a>
+                        <a href=""></a>Log Out</a>
                     </li>
                 </div>
             </div>
@@ -53,8 +62,13 @@
         <div class="overlay-content">
             <span class="overlay-message">Do you really want to logout?</span>
             <div class="overlay-options">
-                <li>Yes</li>
+                {% if user.is_authenticated %}
+                <li class="no-logout">
+                    <a href="{% url 'logout' %}">Yes</a>
+                </li>
+                
                 <li class="no-logout">No</li>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -85,14 +99,14 @@
                 </div>
                 <div class="form-option">
                     <label for="">Vehicle Type</label>
-                    <select name="Vehicle Type" id="">
+                    <!-- <select name="Vehicle Type" id="">
                         <option value="Car" selected>Car</option>
                         <option value="Motorcycle">Motorcycle</option>
                         <option value="Bus">Bus</option>
                         <option value="Van">Van</option>
                         <option value="Truck">Truck</option>
-                    </select>
-                    <!-- <input name = 'vehicletype'  type="text"> -->
+                    </select> -->
+                    <input name = 'vehicletype'  type="text">
                 </div>
                 <div class="form-option">
                     <label for="">Created By</label>
@@ -103,11 +117,16 @@
             <button class="btns" onclick="pri()">
                 abc
             </button>
+            <button class="btnss">
+                <a href="{% url 'viewchallan' %}">
+                    Record
+                </a>
+            </button>
         </div>
     </main>
     <footer class="page-footer">
         <div class="footer-logo">
-            <img src="src/img/page-logo.png" alt="Page Logo">
+            <img src="{% static 'src/img/page-logo.png' %}" alt="Page Logo">
         </div>
         <span class="copyright">Copyright &#169; E-Challan 2021 </span>
         <div class="contact-info">

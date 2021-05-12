@@ -3,11 +3,28 @@
         display: none;
     }
 
-    footer{
+    .page-footer{
         display: none;
     }
 
     .create-form{
-        width: 100%;
+        width: 75rem;
+        margin-top: 150px;
+    }
+
+    .create-form label{
+        font-size: 1rem;
+    }
+
+    .btns{
+        display: none;
+    }
+
+    .submit-btn{
+        display: none;
+    }
+
+    .create-form-section h1{
+        display: none;
     }
 }
