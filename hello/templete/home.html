@@ -37,15 +37,16 @@
                 </ul>
             </div>
             <div class="user-details-section">
-                <div class="navbar-nav">
-                    {% if user.is_authenticated %}
-                      <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-                      <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
-                    {% else %}
-                      <a class="nav-item nav-link" href="{% url 'loginPage' %}">Login</a>
-                      <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
-                    {% endif %}
-                  </div>
+                <i class="fas fa-user fa-3x"></i>
+                <div class="dropdown">
+                    <span class="user-name">{{request.user}}</span>
+                    <ul>
+                        <li class="log-out-button">
+                            <a href="{% url 'loginPage' %}">Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>               
         </div>
     </header>
     <div class="main-body-section">
@@ -79,5 +80,6 @@
         <span class="copyright">Copyright &#169; E-Challan 2021 </span>
     </footer>
     <script src="{% static 'Js/slider.js' %}"></script>
+    <script src="{% static 'Js/overlay.js' %}"></script>
 </body>
 </html>
