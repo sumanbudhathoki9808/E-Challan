@@ -1,14 +1,12 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Challan</title>
-    <link rel = "icon" href = "{% static 'src/img/page-logo.png' %}" type = "image/x-icon">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel = "icon" href = { % static 'src/img/page-logo.png' %} type = "image/x-icon">
+    <link rel="stylesheet" href={% static 'styles/style.css' %}>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
@@ -17,14 +15,14 @@
     <header>
         <div class="page-header">
             <div class="page-logo">
-                <a href="{% url 'home' %}">
-                    <img src="{% static 'src/img/page-logo.png' %}" alt="Page Logo">
+                <a href={% url 'home' %}>
+                    <img src={% static 'src/img/page-logo.png' %} alt="Page Logo">
                 </a>
             </div>
             <div class="page-nav">
                 <ul>
                     <li>
-                        <a href="{% url 'home' %}" class="active-page">Home</a>
+                        <a href="{% url 'home' %}">Home</a>
                     </li>
                     <li>
                         <a href="{% url 'create' %}">Create Challan</a>
@@ -45,36 +43,18 @@
             </div>
         </div>
     </header>
-    <div class="main-body-section">
-        <div class="page-title-section">
-            <h1 class="page-title">E-challan Website</h1>
-        </div>
-        <div class="slider-section">
-            <div class="slides fade">
-                <img src="{% static 'src/img/slider-1.gif' %}" style="width:100%">
-            </div>
-            <div class="slides fade">
-                <img src="{% static 'src/img/slider-2.gif' %}" style="width:100%">
-            </div>
-            <div class="slides fade">
-                <img src="{% static 'src/img/slider-3.gif' %}" style="width:100%">
-            </div>
-            <a class="prev-button" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next-button" onclick="plusSlides(1)">&#10095;</a>
-            <br>
-            <div style="text-align:center">
-                <span class="dot" onclick="currentSlide(1)"></span> 
-                <span class="dot" onclick="currentSlide(2)"></span> 
-                <span class="dot" onclick="currentSlide(3)"></span> 
-            </div>
-        </div>
+    <h2>You have been logged out</h2>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            <a href="{% url 'login' %}">Log In Again</a>
+        </small>
     </div>
     <footer class="page-footer">
         <div class="footer-logo">
-            <img src="{% static 'src/img/page-logo.png' %}" alt="Page Logo">
+            <img src={% static 'src/img/page-logo.png' %} alt="Page Logo">
         </div>
         <span class="copyright">Copyright &#169; E-Challan 2021 </span>
     </footer>
-    <script src="{% static 'Js/slider.js' %}"></script>
+    <script src={% static 'src/js/slider.js' %}></script>
 </body>
 </html>
