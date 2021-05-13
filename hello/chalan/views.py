@@ -16,7 +16,7 @@ from django.contrib.auth import authenticate, login, logout
 # from django.contrib.auth import login as auth_login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from .models import challan, dynamicAbout
+from .models import challan, dynamicAbout, contact
 from . import models
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -100,6 +100,17 @@ def about(request):
 
 @login_required(login_url='/')
 def contact(request):
+
+    if request.method == "POST":
+        # challans = challan()
+        usernames = request.POST.get('usernames')
+        phonenumbers = request.POST.get('phonenumbers')
+        email = request.POST.get('email')
+        descs = request.POST.get('descs')
+
+        ins = models.contact(usernames = usernames, phonenumbers = phonenumbers,  email=email, descs = descs)
+        ins.save()
+
     return render(request, "contact.html")
 
 @login_required(login_url='/')
