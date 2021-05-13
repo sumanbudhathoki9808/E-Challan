@@ -7,62 +7,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    <link rel="stylesheet" href="{% static 'css/create.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
     <link rel="stylesheet" href="{% static 'css/header.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body>
     <header>
-        <header>
-            <div class="page-header">
-                <div class="page-logo">
-                    <a href="{% url 'home' %}">
-                        <img src="{% static 'src/img/page-logo.png' %}" alt="Page Logo">
-                    </a>
-                </div>
-                <div class="page-nav">
-                    <ul>
-                        <li>
-                            <a href="{% url 'home' %}">Home</a>
-                        </li>
-                        <li>
-                            <a href="{% url 'create' %}">Create Challan</a>
-                        </li>
-                        <li>
-                            <a href="{% url 'about' %}">About Us</a>
-                        </li>
-                        <li>
-                            <a href="{% url 'contact' %}" class="active-page">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="user-details-section">
-                    <i class="fas fa-user fa-3x"></i>
-                    <div class="dropdown">
-                        <li class="user-name">{{request.user}}</li>
-                        <li class="log-out-button">
-                            <a href=" ">Log Out</a>
-                        </li>
-                    </div>
-                </div>
+        <div class="page-header">
+            <div class="page-logo">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'src/img/page-logo.png' %}" alt="Page Logo">
+                </a>
             </div>
-        </header>
-        <div class="logout-page-overlay">
-            <span class="close-btn">x</span>
-            <div class="overlay-content">
-                <span class="overlay-message">Do you really want to logout?</span>
-                <div class="overlay-options">
-                    {% if user.is_authenticated %}
-                    <li class="no-logout">
-                        <a href="{% url 'logout' %}">Yes</a>
+            <div class="page-nav">
+                <ul>
+                    <li>
+                        <a href="{% url 'home' %}">Home</a>
                     </li>
-                    
-                    <li class="no-logout">No</li>
-                    {% endif %}
+                    <li>
+                        <a href="{% url 'create' %}">Create Challan</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'about' %}">About Us</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact' %}" class="active-page">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="user-details-section">
+                <i class="fas fa-user fa-3x"></i>
+                <div class="dropdown">
+                    <li class="user-name">{{request.user}}</li>
+                    <li class="log-out-button">
+                        <a href=""></a>Log Out</a>
+                    </li>
                 </div>
             </div>
         </div>
+    </header>
+    <div class="logout-page-overlay">
+        <span class="close-btn">x</span>
+        <div class="overlay-content">
+            <span class="overlay-message">Do you really want to logout?</span>
+            <div class="overlay-options">
+                {% if user.is_authenticated %}
+                <li class="no-logout">
+                    <a href="{% url 'logout' %}">Yes</a>
+                </li>
+                
+                <li class="no-logout">No</li>
+                {% endif %}
+            </div>
+        </div>
+    </div>
     <main class="main-body-section">
         <div class="create-form-section">
             <h1>Contact us</h1>
@@ -70,19 +69,19 @@
                 {% csrf_token %}
                 <div class="form-option">
                     <label for="">Name</label>
-                    <input  name = 'names' type="text">
+                    <input  name = 'names' type="text" required>
                 </div>
                 <div class="form-option">
                     <label for="">Phone Number</label>
-                    <input name = 'phonenumber' type="text">
+                    <input name = 'phonenumber' type="text" required>
                 </div>
                 <div class="form-option">
                     <label for="">Email</label>
-                    <input name = 'place' type="text">
+                    <input name = 'place' type="text" required>
                 </div>
                 <div class="form-option">
                     <label for="" class="desc">Description</label>
-                    <input name = 'desc' type="text">
+                    <input name = 'desc' type="textfield" required>
                 </div>
                 <input class="submit-btn" type="submit">  
             </form>

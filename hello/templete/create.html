@@ -79,23 +79,23 @@
                 {% csrf_token %}
                 <div class="form-option">
                     <label for="">Name</label>
-                    <input  name = 'names' type="text">
+                    <input  name = 'names' type="text" required>
                 </div>
                 <div class="form-option">
                     <label for="">Phone Number</label>
-                    <input name = 'phonenumber' type="text">
+                    <input name = 'phonenumber' type="text" required>
                 </div>
                 <div class="form-option">
                     <label for="">Place</label>
-                    <input name = 'place' type="text">
+                    <input name = 'place' type="text" required>
                 </div>
                 <div class="form-option">
                     <label for="">License Number</label>
-                    <input name = 'licensenumber' type="text">
+                    <input name = 'licensenumber' type="text" required>
                 </div>
                 <div class="form-option">
                     <label for="">Vehicle Number</label>
-                    <input name = 'vehiclenumber' type="text">
+                    <input name = 'vehiclenumber' type="text" required>
                 </div>
                 <div class="form-option">
                     <label for="">Vehicle Type</label>
@@ -106,11 +106,11 @@
                         <option value="Van">Van</option>
                         <option value="Truck">Truck</option>
                     </select> -->
-                    <input name = 'vehicletype'  type="text">
+                    <input name = 'vehicletype'  type="text" required>
                 </div>
                 <div class="form-option">
                     <label for="">Created By</label>
-                    <input name = 'creator' type="text">
+                    <input name = 'creator' type="text" required>
                 </div>
                 <input class="submit-btn" type="submit">  
             </form>
