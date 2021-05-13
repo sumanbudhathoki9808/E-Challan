@@ -24,3 +24,14 @@ class dynamicAbout(models.Model):
 
     def __str__(self):
         return self.title
+
+
+# class contact(models.Model):
+
+#     usernames = models.CharField(max_length = 200)
+#     phonenumbers = models.IntegerField(max_length = 200)
+#     email = models.EmailField(max_length = 200)
+#     descs = models.CharField(max_length = 200)
+
+#     def __str__(self):
+#         return self.email

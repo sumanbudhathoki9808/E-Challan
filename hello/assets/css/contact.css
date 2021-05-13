@@ -56,6 +56,20 @@
     border: 1px solid black;
 }
 
+.form-option textarea{
+    padding: 0.8rem 1rem;
+    outline: none;
+    border: none;
+    height: 7rem;
+    resize: none;
+    border-bottom: 2px solid black;
+    transition: all 200ms ease-in-out;
+}
+
+.form-option textarea:focus, .form-option select:focus {
+    border: 1px solid black;
+}
+
 .form-option select{
     font-size: 1em;
     padding: 0.8rem 1rem;
