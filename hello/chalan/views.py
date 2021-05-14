@@ -6,16 +6,12 @@ from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 from .form import CreateUserForm
-
-
-
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.forms import inlineformset_factory
 from django.contrib.auth import authenticate, login, logout
-# from django.contrib.auth import login as auth_login
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
 from .models import challan, dynamicAbout, contact
 from . import models
 from django.contrib.auth.decorators import login_required
@@ -24,29 +20,29 @@ from django.contrib.auth.decorators import login_required
 # from .forms import CreateUserForm
 
 
-def register(request):
-    # forms = CreateUserForm()
+# def register(request):
+#     # forms = CreateUserForm()
 
-    # if request.method == 'POST':
-    #     forms = CreateUserForm(request.POST)
-    #     if forms.is_valid():
-    #         forms.save()
+#     # if request.method == 'POST':
+#     #     forms = CreateUserForm(request.POST)
+#     #     if forms.is_valid():
+#     #         forms.save()
 
-    # context = {'form': forms}
+#     # context = {'form': forms}
 
-    forms = CreateUserForm()
-    if request.method == 'POST':
-        form = CreateUserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            user = form.cleaned_data.get('username')
-            messages.success(request, 'Account created sucessfully for '+ user)
-        return redirect('/')
+#     forms = CreateUserForm()
+#     if request.method == 'POST':
+#         form = CreateUserForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             user = form.cleaned_data.get('username')
+#             messages.success(request, 'Account created sucessfully for '+ user)
+#         return redirect('/')
 
-    # return render(request,'signin.html',{"form":form})
-    # context = {'form': forms}
+#     # return render(request,'signin.html',{"form":form})
+#     # context = {'form': forms}
 
-    return render(request, "register.html", {'form': forms})
+#     return render(request, "register.html", {'form': forms})
 
 def loginPage(request):
     if request.method == 'POST':

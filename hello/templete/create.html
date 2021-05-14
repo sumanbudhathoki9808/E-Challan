@@ -66,9 +66,11 @@
                 <li class="no-logout">
                     <a href="{% url 'logout' %}">Yes</a>
                 </li>
-                
-                <li class="no-logout">No</li>
                 {% endif %}
+                <li class="no-logout">
+                    <a href="{% url 'create' %}">No</a>
+                </li>
+                
             </div>
         </div>
     </div>
@@ -99,13 +101,6 @@
                 </div>
                 <div class="form-option">
                     <label for="">Vehicle Type</label>
-                    <!-- <select name="Vehicle Type" id="">
-                        <option value="Car" selected>Car</option>
-                        <option value="Motorcycle">Motorcycle</option>
-                        <option value="Bus">Bus</option>
-                        <option value="Van">Van</option>
-                        <option value="Truck">Truck</option>
-                    </select> -->
                     <input name = 'vehicletype'  type="text" required>
                 </div>
                 <div class="form-option">

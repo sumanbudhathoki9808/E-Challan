@@ -6,7 +6,7 @@ from django.db import models
 class challan(models.Model):
 
     names = models.CharField(max_length = 200)
-    phonenumber = models.IntegerField(max_length = 200)
+    phonenumber = models.IntegerField()
     place = models.CharField(max_length = 200)
     licensenumber = models.CharField(max_length = 200)
     vehiclenumber = models.CharField(max_length = 200)
@@ -27,8 +27,9 @@ class dynamicAbout(models.Model):
 
 
 class contact(models.Model):
+
     usernames = models.CharField(max_length = 200)
-    phonenumbers = models.IntegerField(max_length = 200)
+    phonenumbers = models.IntegerField()
     email = models.EmailField(max_length = 200)
     descs = models.TextField()
 

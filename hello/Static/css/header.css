@@ -199,6 +199,12 @@ header{
 
 }
 
+.overlay-options a:hover{
+    color: #fff;
+
+}
+
+
                         /********** PAGE FOOTER **********/
 
 .page-footer{
