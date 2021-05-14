@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
@@ -30,23 +31,73 @@
                     <li>
                         <a href="{% url 'about' %}" class="active-page">About Us</a>
                     </li>
+                    {% if user.is_superuser %}
+                    {% else %}
                     <li>
                         <a href="{% url 'contact' %}">Contact Us</a>
                     </li>
+                    {% endif %}
+                    
+                    {% if user.is_superuser %}
+                    <li>
+                        <a href="/admin">Admin</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
             <div class="user-details-section">
-                <div class="user-icon">
-                    <i class="fas fa-user fa-3x"></i>
-                </div>
-                <div class="log-out-section">
-                    <span class="user-name">John Doe</span>
+                <i class="fas fa-user fa-3x"></i>
+                <div class="dropdown">
+                    <li class="user-name">{{request.user}}</li>
                     <li class="log-out-button">
-                        <a href="#">Log Out</a>
+                        <a href=" ">Log Out</a>
                     </li>
                 </div>
             </div>
         </div>
     </header>
+    <div class="logout-page-overlay">
+        <span class="close-btn">x</span>
+        <div class="overlay-content">
+            <span class="overlay-message">Do you really want to logout?</span>
+            <div class="overlay-options">
+                {% if user.is_authenticated %}
+                <li class="no-logout">
+                    <a href="{% url 'logout' %}">Yes</a>
+                </li>
+                
+                <li class="no-logout">No</li>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="container">
+            <div class="about-section" >
+                <div class="inner-container">
+                    <h1>
+                        About Us
+                    </h1>
+                    {% for i in context %}
+                    <p class = "text">
+                        {{i.desc}}
+                    </p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="page-footer">
+        <div class="footer-logo">
+            <img src="{% static 'src/img/page-logo.png' %}" alt="Page Logo">
+        </div>
+        <span class="copyright">Copyright &#169; E-Challan 2021 </span>
+        <div class="contact-info">
+            <span>Email: abcd@gmail.com</span>
+            <span>Phone:1234567890</span>
+        </div>
+    </footer>
+    <script src="{% static 'Js/overlay.js' %}"></script>
 </body>
 </html>

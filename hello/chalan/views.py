@@ -16,8 +16,9 @@ from django.contrib.auth import authenticate, login, logout
 # from django.contrib.auth import login as auth_login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from .models import chalan
-
+from .models import challan, dynamicAbout
+from . import models
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 # from .models import *
 # from .forms import CreateUserForm
@@ -63,12 +64,19 @@ def loginPage(request):
     context = {}
     return render(request,'login.html',context)
 
+def logouts(request):
+    logout(request)
+    
+    return redirect('/')
+
+@login_required(login_url='/')
 def home(request):
     return render(request, "home.html")
 
+@login_required(login_url='/')
 def create(request):
     if request.method == "POST":
-        challans = chalan()
+        # challans = challan()
         names = request.POST.get('names')
         phonenumber = request.POST.get('phonenumber')
         place = request.POST.get('place')
@@ -77,19 +85,26 @@ def create(request):
         vehicletype = request.POST.get('vehicletype')
         creator = request.POST.get('creator')
 
-        challans.names = names
-        challans.phonenumber = phonenumber
-        challans.place = place
-        challans.licensenumber = licensenumber
-        challans.vehiclenumber = vehiclenumber
-        challans.vehicletype = vehicletype
-        challans.creator = creator
-        challans.save()
+        ins = models.challan(names = names, phonenumber = phonenumber,  place=place, licensenumber = licensenumber, vehiclenumber=vehiclenumber, vehicletype=vehicletype, creator=creator)
+        ins.save()
 
     return render(request, "create.html")
 
+@login_required(login_url='/')
 def about(request):
-    return render(request, "about.html")
 
+    about = dynamicAbout.objects.all()
+
+
+    return render(request, "about.html", {"context" : about})
+
+@login_required(login_url='/')
 def contact(request):
     return render(request, "contact.html")
+
+@login_required(login_url='/')
+def viewchallan(request):
+
+    rec = challan.objects.filter(creator = request.user)
+
+    return render(request, "viewchallan.html", {"record" : rec })

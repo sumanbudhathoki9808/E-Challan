@@ -8,6 +8,7 @@
     <title>E-Challan</title>
     <link rel = "icon" href = "{% static 'src/img/page-logo.png' %}" type = "image/x-icon">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
@@ -31,24 +32,47 @@
                     <li>
                         <a href="{% url 'about' %}">About Us</a>
                     </li>
+                    {% if user.is_superuser %}
+                    {% else %}
                     <li>
                         <a href="{% url 'contact' %}">Contact Us</a>
                     </li>
+                    {% endif %}
+                    
+                    {% if user.is_superuser %}
+                    <li>
+                        <a href="/admin">Admin</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
             <div class="user-details-section">
                 <i class="fas fa-user fa-3x"></i>
                 <div class="dropdown">
-                    <span class="user-name">{{request.user}}</span>
-                    <ul>
-                        <li class="log-out-button">
-                            <a href="{% url 'loginPage' %}">Log Out</a>
-                        </li>
-                    </ul>
+                    <li class="user-name">{{request.user}}</li>
+                    <li class="log-out-button">
+                        <a href=""></a>Log Out</a>
+                    </li>
                 </div>
-            </div>               
+            </div>
         </div>
     </header>
+    <div class="logout-page-overlay">
+        <span class="close-btn">x</span>
+        <div class="overlay-content">
+            <span class="overlay-message">Do you really want to logout?</span>
+            <div class="overlay-options">
+                {% if user.is_authenticated %}
+                <li color="white" class="no-logout">
+                    <a href="{% url 'logout' %}">Yes</a>
+                </li>
+            
+                <li class="no-logout">
+                    <a href="{% url 'home' %}">No</a> </li>
+                {% endif %}
+            </div>
+        </div>
+    </div>
     <div class="main-body-section">
         <div class="page-title-section">
             <h1 class="page-title">E-challan Website</h1>
