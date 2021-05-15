@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Challan</title>
+    <title>Challan</title>
     <link rel = "icon" href = "{% static 'src/img/page-logo.png' %}" type = "image/x-icon">
     <link rel="stylesheet" href="{% static 'css/create.css' %}">
     <link rel="stylesheet" href="{% static 'css/header.css' %}">
@@ -24,21 +24,12 @@
             <div class="page-nav">
                 <ul>
                     <li>
-                        <a href="{% url 'home' %}">Home</a>
-                    </li>
-                    <li>
                         <a href="{% url 'create' %}" class="active-page">Create Challan</a>
                     </li>
                     <li>
-                        <a href="{% url 'about' %}">About Us</a>
+                        <a href="{% url 'viewchallan' %}">Records</a>
                     </li>
-                    {% if user.is_superuser %}
-                    {% else %}
-                    <li>
-                        <a href="{% url 'contact' %}">Contact Us</a>
-                    </li>
-                    {% endif %}
-                    
+
                     {% if user.is_superuser %}
                     <li>
                         <a href="/admin">Admin</a>
@@ -51,7 +42,7 @@
                 <div class="dropdown">
                     <li class="user-name">{{request.user}}</li>
                     <li class="log-out-button">
-                        <a href=""></a>Log Out</a>
+                        Log Out
                     </li>
                 </div>
             </div>
@@ -109,15 +100,10 @@
                 </div>
                 <input class="submit-btn" type="submit">  
             </form>
-            <button class="btns" onclick="pri()">
-                abc
-            </button>
-            <button class="btnss">
-                <a href="{% url 'viewchallan' %}">
-                    Record
-                </a>
-            </button>
         </div>
+        <button class="btns" onclick="pri()">
+            <i class="fas fa-print fa-2x"></i>
+        </button>
     </main>
     <footer class="page-footer">
         <div class="footer-logo">

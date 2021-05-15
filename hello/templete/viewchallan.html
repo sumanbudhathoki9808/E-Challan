@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Challan</title>
     <link rel = "icon" href = "{% static 'src/img/page-logo.png' %}" type = "image/x-icon">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/view.css' %}">
     <link rel="stylesheet" href="{% static 'css/header.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
@@ -15,10 +15,12 @@
 
 </head>
 <body>
-    <div>
-        <h1 style="text-align: center;">
-            Challan Record
-        </h1>
+  
+  <main>
+    <div class = "title">
+      <h1 style="text-align: center;">
+          Challan Record
+      </h1>
     </div>
     <div class="table-responsive-sm">
         <table class="table">
@@ -47,12 +49,12 @@
               {% endfor %}
             </tbody>
           </table>
-          <button class="btnss">
-            <a href="{% url 'create' %}">
-                Create Challan
-            </a>
-          </button>
     </div>
-      </div>
+    <button class="btnss">
+      <a href="{% url 'create' %}">
+          Create Challan
+      </a>
+    </button>
+  </main>
 </body>
 </html>

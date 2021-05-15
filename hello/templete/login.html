@@ -33,12 +33,22 @@
                 <input type="password" name = "password" required>
                 <label for="Password">Password</label>
             </div>
+            
             <!-- <button type="submit" value="Sign In" class="sign-in-button">Submit</button> -->
-            <div class="sign-in-button">
-                <input type="Submit" value="Login">
-            </div>
-        </form>
+            <input class="sign-in-button" type="Submit" value="Login">
 
+            {% if messages %}
+                {% for message in messages %}
+                    
+                        <p id= "messages" style="color: rgb(197, 10, 10);">{{message}}</p>
+                    
+                {% endfor %}
+            {% endif %}
+        </form>
+        <div class = "return">
+            <a href="/">Return to Home Page</a>
+        </div>
+        
         <!-- {% endblock %} -->
     </div>
     <footer class="page-footer">

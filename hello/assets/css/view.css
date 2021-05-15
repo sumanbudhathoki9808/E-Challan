@@ -1,0 +1,42 @@
+
+main{
+    width: 90%;
+    margin: auto;
+}
+
+main .title{
+    margin-top: 3rem;
+}
+
+.table-responsive-sm{
+    padding: 2rem;
+    border: 2px solid rgb(94, 94, 94);
+    margin-top: 3rem;
+    border-radius: 10px;
+}
+
+
+                                        /********** record Page **********/
+
+.btnss{
+    text-align: center;
+    margin: auto;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: rgb(0, 0, 0);
+    width: auto;
+    border-radius: 10px;
+    float: right;
+}
+
+.btnss a{
+    color: white;
+    display: block;
+    width: 100%;
+}
+                                        
+.btnss a:hover{
+    color: white;
+    text-decoration: none;
+}       

@@ -23,55 +23,21 @@
             <div class="page-nav">
                 <ul>
                     <li>
-                        <a href="{% url 'home' %}">Home</a>
+                        <a href="/">Home</a>
                     </li>
                     <li>
-                        <a href="{% url 'create' %}">Create Challan</a>
+                        <a href="/login">Create Challan</a>
                     </li>
                     <li>
                         <a href="{% url 'about' %}" class="active-page">About Us</a>
                     </li>
-                    {% if user.is_superuser %}
-                    {% else %}
                     <li>
                         <a href="{% url 'contact' %}">Contact Us</a>
                     </li>
-                    {% endif %}
-                    
-                    {% if user.is_superuser %}
-                    <li>
-                        <a href="/admin">Admin</a>
-                    </li>
-                    {% endif %}
                 </ul>
-            </div>
-            <div class="user-details-section">
-                <i class="fas fa-user fa-3x"></i>
-                <div class="dropdown">
-                    <li class="user-name">{{request.user}}</li>
-                    <li class="log-out-button">
-                        <a href=""></a>Log Out</a>
-                    </li>
-                </div>
             </div>
         </div>
     </header>
-    <div class="logout-page-overlay">
-        <span class="close-btn">x</span>
-        <div class="overlay-content">
-            <span class="overlay-message">Do you really want to logout?</span>
-            <div class="overlay-options">
-                {% if user.is_authenticated %}
-                <li class="no-logout">
-                    <a href="{% url 'logout' %}">Yes</a>
-                </li>
-                {% endif %}
-                <li class="no-logout">
-                    <a href="{% url 'about' %}">No</a>
-                </li>
-            </div>
-        </div>
-    </div>
     <main>
         <div class="container">
             <div class="about-section" >
