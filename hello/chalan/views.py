@@ -7,7 +7,7 @@ from django.forms import inlineformset_factory
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
-from .models import challan, dynamicAbout, contact
+from .models import HomeImage, challan, dynamicAbout, contact, HomeImage
 from . import models
 from django.contrib.auth.decorators import login_required
 
@@ -20,7 +20,7 @@ def loginPage(request):
        
         if user is not None:
             login(request,user)
-            return redirect('/create')
+            return redirect('/create/')
         else:
             messages.error(request, 'Username or password is incorrect')
 
@@ -34,7 +34,9 @@ def logouts(request):
 
 # @login_required(login_url='/')
 def home(request):
-    return render(request, "home.html")
+
+    pics = HomeImage.objects.all()
+    return render(request, "home.html",{"pics":pics})
 
 @login_required(login_url='/')
 def create(request):

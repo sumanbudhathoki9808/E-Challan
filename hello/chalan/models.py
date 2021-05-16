@@ -35,3 +35,10 @@ class contact(models.Model):
 
     def __str__(self):
         return self.email
+
+class HomeImage(models.Model):
+    caption = models.CharField(max_length=50)
+    image = models.FileField(upload_to='picture', blank = True)
+
+    def str(self):
+      return self.caption
