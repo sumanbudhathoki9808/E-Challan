@@ -46,6 +46,18 @@
                     </li>
                 </div>
             </div>
+            <div class="toggle"><i class="fas fa-bars fa-3x"></i></div>
+            <div class="navigation">
+                <div class="mobile-profile">
+                    <i class="fas fa-user fa-3x"></i>
+                    <li class="user-name">{{request.user}}</li>
+                </div>
+                <ul>
+                    <li><a href="{% url 'create' %}">Create</a></li>
+                    <li><a href="{% url 'viewchallan' %}">Record</a></li>
+                    <li class="{% url 'logout' %}">Log Out</li>
+                </ul>
+            </div>
         </div>
     </header>
     <div class="logout-page-overlay">
@@ -116,6 +128,8 @@
         </div>
     </footer>
     <script src="{% static 'Js/overlay.js' %}"></script>
+    <script src="{% static 'Js/slider.js' %}"></script>
+    <script src="{% static 'Js/toggle.js' %}"></script>
     <script>
         function pri(){
             window.print()

@@ -37,6 +37,15 @@
                     </li>
                 </ul>
             </div>
+            <div class="toggle"><i class="fas fa-bars fa-3x"></i></div>
+            <div class="navigation">
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'loginPage' %}">Create Challan</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
             
         </div>
     </header>
@@ -59,7 +68,31 @@
                 <span class="dot" onclick="currentSlide(3)"></span> 
             </div>
         </div>
+        <div class="rules-section">
+            <div class="rule-imgs">
+                <img src="{% static 'src/img/traffic-rule-1.png' %}" alt="">
+            </div>
+            <div class="rule-imgs">
+                <img src="{% static 'src/img/traffic-rule-2.png' %}" alt="">
+            </div>
+        </div>
+        <div class="app-section wrapper">
+            <div class="app-details">
+                <div class="app-section-text">
+                    <h1 class="section-title">E-Challan now available in mobile app</h1>
+                </div>
+            </div>
+            <div class="app-links">
+                <a href="playstore.com" target="_blank">
+                    <img src="{% static 'src/img/google-play.png' %}" alt="Play store link">
+                </a>
+                <a href="appstore.com" target="_blank">
+                    <img src="{% static 'src/img/app-store.png' %}" alt="App store link">
+                </a>
+            </div>
+        </div>
     </div>
+    
     <footer class="page-footer">
         <div class="footer-logo">
             <img src="{% static 'src/img/page-logo.png' %}" alt="Page Logo">
@@ -72,5 +105,6 @@
     </footer>
     <script src="{% static 'Js/slider.js' %}"></script>
     <script src="{% static 'Js/overlay.js' %}"></script>
+    <script src="{% static 'Js/toggle.js' %}"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
                                 /******** MAIN SECTION ********/
 
 .main-body-section{
-    width: 1170px;
+    width: 88%;
     margin: auto;
 }
 
@@ -91,24 +91,113 @@
     /* border: 1px solid red; */
 }
 
-                        /********** PAGE FOOTER **********/
-.page-footer{
+                                    /******Rules Section******/
+
+.rules-section{
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    margin-top: 4rem;
+}
+
+.rules-section img{
+    width: 100%;
+}
+
+                                        /*****APP SECTION*****/
+
+ .app-section{
+    margin-top: 4rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border: 1px solid #999999;
+}
+
+.app-section-text{
+    margin-top: 1rem;
+    /* border: 1px solid black; */
+}
+
+.app-section-text .section-title{
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+}
+
+.app-links{
+    display: flex;
     align-items: center;
-    margin-top: 100px;
-    background-color: rgb(245, 245, 245);
-    height: 20vh;
-}
-.footer-logo img{
-    width: 125px;
+    justify-content: flex-start;
+    margin-top: 0.6remrem;
+    padding: 0.5rem 1rem;
+    /* border: 1px solid red; */
 }
 
-.contact-info{
+.app-links a{
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-links img{
+    width: 150px;
+}
+
+.app-links img:first-child{
+    margin-right: 1rem;
 }
 
 
-                   
+                            /****Responsive*****/
+
+@media (max-width: 768px) {
+
+    .page-title{
+        font-size: 3rem;
+    }
+
+    .prev-button, .next-button{
+        width: auto;
+        padding: 10px 15px;
+        color: white;
+        background-color: black;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    .slides img{
+        width: 100%;
+    }
+
+    .dot {
+        height: 15px;
+        width: 15px;
+    }
+
+    .rules-section{
+        flex-direction: column;
+    }
+
+    .app-section{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .app-links{
+        flex-direction: column;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .main-body-section{
+        width: 95%;
+    }
+
+    .page-title{
+        font-size: 2rem;
+    }
+
+}

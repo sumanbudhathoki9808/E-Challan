@@ -36,6 +36,15 @@
                     </li>
                 </ul>
             </div>
+            <div class="toggle"><i class="fas fa-bars fa-3x"></i></div>
+            <div class="navigation">
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'loginPage' %}">Create Challan</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
         </div>
     </header>
     <main class="main-body-section">
@@ -74,6 +83,7 @@
         </div>
     </footer>
     <script src="{% static 'Js/overlay.js' %}"></script>
+    <script src="{% static 'Js/toggle.js' %}"></script>
 </body>
 </html>
 

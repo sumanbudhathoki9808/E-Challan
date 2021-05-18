@@ -97,6 +97,10 @@ header{
     color: rgb(102, 102, 102);
 }
 
+
+
+
+
 .dropdown{
     position: absolute;
     display: block;
@@ -150,7 +154,7 @@ header{
     position: fixed;
     top: 0;
     bottom: 0;
-    z-index: 100;
+    z-index: 109;
     width: 100%;
     height: 100%;
     background: rgba(36, 36, 36, 0.7);
@@ -204,6 +208,77 @@ header{
 
 }
 
+                            /********TOGGLE MENU********/
+
+
+                                    /* TOGGLE */
+
+.toggle {
+    width: auto;
+    padding: 1rem;
+    z-index: 10;
+    cursor: pointer;
+    display: none;
+  }
+  
+  .toggle.active {
+    z-index: 101;
+  }
+  
+                            /******* TOGGLE NAVIGATION ********/
+
+  .navigation {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .navigation.active {
+    left: 0;
+  }
+
+  .mobile-profile{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1rem;
+  }
+
+  .mobile-profile li{
+      padding: 0.6rem 1rem;
+      border: 1px solid black;
+  }
+
+  .navigation ul {
+    position: relative;
+  }
+  
+  .navigation ul li {
+    position: relative;
+    list-style: none;
+    text-align: center;
+  }
+  
+  .navigation ul li a {
+    font-size: 1.6rem;
+    color: #111;
+    text-decoration: none;
+    font-weight: 300;
+  }
+  
+  .navigation ul li a:hover {
+    color: #004479;
+  }
+
 
                         /********** PAGE FOOTER **********/
 
@@ -223,4 +298,42 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+
+                            /****Responsive*****/
+
+@media (max-width: 768px) {
+
+    .page-nav{
+        display: none;
+    }
+
+    .logout-page-overlay .close-btn{
+        top: 3%;
+    }
+
+    .overlay-content{
+        width: 60%;
+    }
+
+    .toggle{
+        display: inline-block;
+    }
+
+    .page-footer{
+        flex-direction: column;
+        height: auto;
+    }
+
+    .user-details-section{
+        display: none;
+    }
+}
+
+@media (max-width: 468px){
+    .overlay-content{
+        width: 70%;
+    }
+
 }
